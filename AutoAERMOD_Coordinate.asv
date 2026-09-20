@@ -1,0 +1,13 @@
+clear; clc; close all; fclose all; format compact; format longG;
+
+baseDir = pwd;
+aermodDir = fullfile(baseDir, 'AERMODinputs');
+
+cd(aermodDir);
+copyfile('InputMeta_PAMC_Pt_2023.mat', 'InputMeta.mat');
+
+cd(baseDir)
+run('AutoAERMOD_03_RunAndCollect_PAMC_Pt.m');
+
+movefile(fullfile(aermodOutputDir, '*.mat'), targetFolder);
+movefile
